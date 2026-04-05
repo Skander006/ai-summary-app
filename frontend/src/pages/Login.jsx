@@ -31,22 +31,28 @@ export default function Login(){
             <form onSubmit={handleSubmit} className="login__form">
                 <h2 className="login__title">Login</h2>
                 {error && <p className="login__error">{error}</p>}
-                <input
-                    type="email"
-                    placeholder="Email..."
-                    value={email}
-                    onChange={(e)=>setEmail(e.target.value)}
-                    className="form__input"/>
-                <input
-                    type="password"
-                    placeholder="Mot de passe..."
-                    value={password}
-                    onChange={(e)=>setPassword(e.target.value)}
-                    className="form__input"/>
-                <button type="submit" className="form__button">
-                    Se connecter
-                </button>
-                <p className="login__link">Pas de compte? <span className="link__span" onClick={()=>navigate("/register")}>Créer un compte</span></p>
+                <div className="login__inputs">
+                    <input
+                        type="email"
+                        placeholder="Email..."
+                        value={email}
+                        onChange={(e)=>setEmail(e.target.value)}
+                        className="form__input"/>
+                    <input
+                        type="password"
+                        placeholder="Mot de passe..."
+                        value={password}
+                        onChange={(e)=>setPassword(e.target.value)}
+                        className="form__input"/>
+                </div>
+
+                <div className="login__footer">
+                    <button type="submit" className="form__button">
+                        Se connecter
+                    </button>
+                    <p className="login__link">Pas de compte? <span className="link__span" onClick={()=>navigate("/register")}>Créer un compte</span></p>
+                </div>
+
             </form>
         </div>
     )

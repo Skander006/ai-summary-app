@@ -34,37 +34,41 @@ export default function Register(){
 
     return(
         <div className="register__container">
-            <form onSubmit={handleSubmit} className="register">
-                <h2>Créer un compte</h2>
+            <h1 className="register__welcome">Welcome to Summify !</h1>
+            <form onSubmit={handleSubmit} className="register__form">
+                <h2 className="register__title">Créer un compte</h2>
                 {error && <p className="register__error">{error}</p> }
-                <input
-                    type="text"
-                    placeholder="Prénom..."
-                    value={firstname}
-                    onChange={(e)=>setFirstname(e.target.value)}
-                    className="register__input"
+                <div className="register__inputs">
+                    <input
+                        type="text"
+                        placeholder="Prénom..."
+                        value={firstname}
+                        onChange={(e)=>setFirstname(e.target.value)}
+                        className="register__input"
                     />
-                <input
-                    type="text"
-                    placeholder="Nom..."
-                    value={lastname}
-                    onChange={(e)=>setLastname(e.target.value)}
-                    className="register__input"
+                    <input
+                        type="text"
+                        placeholder="Nom..."
+                        value={lastname}
+                        onChange={(e)=>setLastname(e.target.value)}
+                        className="register__input"
                     />
-                <input
-                    type="email"
-                    value={email}
-                    placeholder="Email..."
-                    onChange={(e)=>setEmail(e.target.value)}
-                    className="register__input"
+                    <input
+                        type="email"
+                        value={email}
+                        placeholder="Email..."
+                        onChange={(e)=>setEmail(e.target.value)}
+                        className="register__input"
                     />
-                <input
-                    type="password"
-                    placeholder="Mot de passe..."
-                    value={password}
-                    onChange={(e)=>setPassword(e.target.value)}
-                    className="register__input"
+                    <input
+                        type="password"
+                        placeholder="Mot de passe..."
+                        value={password}
+                        onChange={(e)=>setPassword(e.target.value)}
+                        className="register__input"
                     />
+                </div>
+
                 <button type="submit" className="register__button">
                     Créer un Compte
                 </button>
