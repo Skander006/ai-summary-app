@@ -27,26 +27,26 @@ export default function Login(){
         }
     }
     return(
-        <div className="login-container">
-            <form onSubmit={handleSubmit} className="login-form">
-                <h2 className="login-title">Login</h2>
-                {error && <p className="login-error">{error}</p>}
+        <div className="login__container">
+            <form onSubmit={handleSubmit} className="login__form">
+                <h2 className="login__title">Login</h2>
+                {error && <p className="login__error">{error}</p>}
                 <input
                     type="email"
                     placeholder="Email..."
                     value={email}
                     onChange={(e)=>setEmail(e.target.value)}
-                    className="form-input"/>
+                    className="form__input"/>
                 <input
                     type="password"
                     placeholder="Mot de passe..."
                     value={password}
                     onChange={(e)=>setPassword(e.target.value)}
-                    className="form-input"/>
-                <button type="submit" className="form-button">
+                    className="form__input"/>
+                <button type="submit" className="form__button">
                     Se connecter
                 </button>
-                <p className="login-link">Pas de compte? <span className="link-span">Créer un compte</span></p>
+                <p className="login__link">Pas de compte? <span className="link__span" onClick={()=>navigate("/register")}>Créer un compte</span></p>
             </form>
         </div>
     )

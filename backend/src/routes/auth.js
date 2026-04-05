@@ -10,7 +10,7 @@ router.post('/register', async (req, res)=>{
         return res.status(400).json({error : "Identifiants requis"});
     }
     try{
-        const user = await User.create({email, password});
+        const user = await User.create({firstname, lastname, email, password});
         const token = jwt.sign(
             {id: user._id, email: user.email},
             process.env.JWT_SECRET,

@@ -4,6 +4,8 @@ import {useNavigate} from "react-router-dom";
 import api from "../api/axios.js";
 
 export default function Register(){
+    const [firstname, setFirstname] = useState("");
+    const [lastname, setLastname] = useState("");
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -12,16 +14,21 @@ export default function Register(){
 
     const handleSubmit = async(e)=>{
         e.preventDefault();
-        if(!email.trim() || !password.trim()){
+        if(!email.trim() || !password.trim() || !firstname.trim() || !lastname.trim()){
             return;
         }
         try{
-            const res = await api.post('/register', {email, password});
+            const res = await api.post('/auth/register', {firstname, lastname, email, password});
             login(res.data.token, res.data.user);
             navigate('/');
         } catch(err){
             console.error(err.message);
-            setError(err?.response?.data?.message || err.message);
+            setError(err?.response?.data?.error || err.message);
+        } finally {
+            setEmail('');
+            setPassword('');
+            setFirstname('');
+            setLastname('');
         }
     }
 
@@ -30,6 +37,20 @@ export default function Register(){
             <form onSubmit={handleSubmit} className="register">
                 <h2>Créer un compte</h2>
                 {error && <p className="register__error">{error}</p> }
+                <input
+                    type="text"
+                    placeholder="Prénom..."
+                    value={firstname}
+                    onChange={(e)=>setFirstname(e.target.value)}
+                    className="register__input"
+                    />
+                <input
+                    type="text"
+                    placeholder="Nom..."
+                    value={lastname}
+                    onChange={(e)=>setLastname(e.target.value)}
+                    className="register__input"
+                    />
                 <input
                     type="email"
                     value={email}
@@ -47,7 +68,7 @@ export default function Register(){
                 <button type="submit" className="register__button">
                     Créer un Compte
                 </button>
-                <p className="register__link">Déjà un compte? <span className="span__link">Se connecter</span></p>
+                <p className="register__link">Déjà un compte? <span className="span__link" onClick={()=>navigate("/login")}>Se connecter</span></p>
             </form>
         </div>
     );

@@ -8,8 +8,8 @@ export default function AuthProvider({ children }){
     );
 
     const login = (token, user)=>{
-        localStorage.setItem('user', JSON.stringify(user));
-        localStorage.setItem('token', JSON.stringify(token));
+        localStorage.setItem('user', user);
+        localStorage.setItem('token', token);
         setUser(user);
     }
 

@@ -6,7 +6,9 @@ POST http://localhost:2525/api/auth/register
 Content-Type: application/json
 
 {
-  "email": "skander25@test.com",
+  "firstname" : "Skander",
+  "lastname" : "Saafi",
+  "email": "test@test.com",
   "password": "1234578"
 }
 
@@ -15,14 +17,14 @@ POST http://localhost:2525/api/auth/login
 Content-Type: application/json
 
 {
-"email": "skander25@test.com",
+"email": "test@test.com",
 "password": "1234578"
 }
 
 ### Summary
 POST http://localhost:2525/api/summary
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5Y2Q1ZjdlNDQwN2JjZDQ0ZjJmZmU3ZSIsImVtYWlsIjoic2thbmRlcjI1QHRlc3QuY29tIiwiaWF0IjoxNzc1MzI2NDQyLCJleHAiOjE3NzU5MzEyNDJ9.lip_-jTVCzQBdUZcxoLQePUWBmhRx1EKYKH_LxUyGX4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDI2MDkzNjJmOTRiMGI2OWUzNzc3MSIsImVtYWlsIjoidGVzdEB0ZXN0LmNvbSIsImlhdCI6MTc3NTM5NDk3NSwiZXhwIjoxNzc1OTk5Nzc1fQ.pPk5xAX6jjCS6qdYANfLUk-7v56WDfEzdogKUG8TWFI
 
 {
   "text": "Je suis un joueur de tennis, je jouais au tennis depuis que j'avais 5 ans, j'adore ce jeu, et en fait dès lors que j'étais petit j'aimais toujours regarder les grands matchs à la télé, certes les matchs de Federer qui est pour toujours mon meilleur joueur (mon joueur de tennis préféré) et quand j'ai le temps j'essaierais de jouer plus car la actuellement e peux pas vu que j'ai la faculté et tout, donc actuellement je joue quand est ce que je trouve le temps de jouer."
