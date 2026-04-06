@@ -14,14 +14,14 @@ router.post('/short', protect, async(req, res)=>{
             messages: [
                 {
                     role : "system",
-                    content : "Résume ce texte en moins de 3 phrases en version courte et corrige ",
+                    content : "Résume ce texte en moins de 3 phrases en version courte et corrige. En maximum 300 tokens.",
                 },
                 {
                     role : 'user',
                     content : text,
                 }
             ],
-            max_tokens : 300
+            max_tokens : 400
             }
         );
         const summary = completion.choices[0].message.content;
@@ -44,14 +44,14 @@ router.post('/detailed', protect, async(req,res)=>{
             messages : [
                 {
                     role : "system",
-                    content : "Résume ce texte en version détaillée et corrigée",
+                    content : "Résume ce texte en version détaillée et corrigée. En maximum 600 tokens.",
                 },
                 {
                     role : "user",
                     content : text,
                 }
             ],
-            max_tokens : 500,
+            max_tokens : 1000,
         });
         const summary = completion.choices[0].message.content;
         res.json({summary});
@@ -73,14 +73,14 @@ router.post('/bullet', protect, async(req,res)=>{
             messages : [
                 {
                     role : "system",
-                    content : "Résume ce texte en bullet points, en corrigeant s'il y'a des erreurs."
+                    content : "Résume ce texte en bullet points, en corrigeant s'il y'a des erreurs. En maximum 500 tokens."
                 },
                 {
                     role : "user",
                     content : text,
                 }
             ],
-            max_tokens : 500,
+            max_tokens : 1000,
         });
         const summary = completion.choices[0].message.content;
         res.json({summary});

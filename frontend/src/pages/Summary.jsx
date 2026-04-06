@@ -12,6 +12,12 @@ export default function Summary(){
     const [result, setResult] = useState("");
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
+    const [style, setStyle] = useState("");
+
+    const handleSelect = (e)=>{
+        e.preventDefault();
+        setStyle(e.target.value);
+    }
 
     const handleSend = async(e)=>{
         e.preventDefault();
@@ -22,7 +28,18 @@ export default function Summary(){
         setError("");
         setLoading(true);
         try{
-            const res = await api.post('/summary', {text});
+            let res;
+            if(style === "short"){
+                res = await api.post('/summary/short', {text});
+            } else if(style === "detailed"){
+                res = await api.post('/summary/detailed', {text});
+            } else if(style === "bullet"){
+                res = await api.post('/summary/bullet', {text});
+            } else{
+                setError("Erreur de style");
+                console.error("Erreur de style");
+                return;
+            }
             const summaryText = res.data.summary;
             const result = summaryText.includes(":")? summaryText.split(":")[1] : summaryText;
             setResult(result);
@@ -48,7 +65,15 @@ export default function Summary(){
         <div className="summary__container">
             <NavBar />
             <div className="summary__content">
-                <h2 className="summary__title">{greeting}, {user.firstname}</h2>
+                <div className="summary__header">
+                    <h2 className="summary__title">{greeting}, {user.firstname}</h2>
+                    <select onChange={handleSelect} className="summary__select">
+                        <option value="short">Résumé court</option>
+                        <option value="detailed">Résumé détaillé</option>
+                        <option value="bullet">Résumé en puces</option>
+                    </select>
+                </div>
+
                 {error && <p className="summary__error">{error}</p>}
                 {loading && <p>Chargement...</p>}
                 <div className="summary__message">
