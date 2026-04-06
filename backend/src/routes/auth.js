@@ -36,7 +36,7 @@ router.post('/login', async(req,res)=>{
         if(!user){
             return res.status(404).json({error : "Utilisateur non trouvé !"});
         }
-        const valid = user.comparePassword(password);
+        const valid = await user.comparePassword(password);
         if(!valid){
             return res.status(401).json({error : "Mot de passe invalide !"});
         }
@@ -45,7 +45,7 @@ router.post('/login', async(req,res)=>{
             process.env.JWT_SECRET,
             {expiresIn: "7d"},
         );
-        res.status(200).json({token, user: {id : user._id, email : user.email, fisrtname : user.firstname, lastname : user.lastname}});
+        res.status(200).json({token, user: {id : user._id, email : user.email, firstname : user.firstname, lastname : user.lastname}});
     } catch(err){
         res.status(500).json({error : err.message});
     }

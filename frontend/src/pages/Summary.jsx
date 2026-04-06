@@ -12,7 +12,7 @@ export default function Summary(){
     const [result, setResult] = useState("");
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
-    const [style, setStyle] = useState("");
+    const [style, setStyle] = useState("short");
 
     const handleSelect = (e)=>{
         e.preventDefault();

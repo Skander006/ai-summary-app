@@ -38,7 +38,7 @@ router.post('/detailed', protect, async(req,res)=>{
         return res.status(400).json({error : "Texte requis !"});
     }
     try{
-        const groq = await new Groq({apiKey : process.env.GROQ_API_KEY});
+        const groq = new Groq({apiKey : process.env.GROQ_API_KEY});
         const completion = await groq.chat.completions.create({
             model : "llama-3.3-70b-versatile",
             messages : [
@@ -67,13 +67,13 @@ router.post('/bullet', protect, async(req,res)=>{
         return res.status(400).json({error : "Texte requis !"});
     }
     try{
-        const groq = await new Groq({apiKey : process.env.GROQ_API_KEY});
+        const groq = new Groq({apiKey : process.env.GROQ_API_KEY});
         const completion = await groq.chat.completions.create({
             model : "llama-3.3-70b-versatile",
             messages : [
                 {
                     role : "system",
-                    content : "Résume ce texte en bullet points, en corrigeant s'il y'a des erreurs. En maximum 500 tokens."
+                    content : "Résume ce texte en bullet points, en corrigeant s'il y'a des erreurs. En maximum 700 tokens."
                 },
                 {
                     role : "user",

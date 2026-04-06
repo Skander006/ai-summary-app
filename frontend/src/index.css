@@ -169,3 +169,80 @@
 .copy__button:hover{
     animation: upAnimation 0.3s ease-in-out forwards;
 }
+
+
+
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+
+/* Tablettes */
+@media (max-width: 1024px) {
+    .navbar__container {
+        @apply px-8 py-6;
+    }
+
+    .summary__title {
+        @apply mx-10 text-2xl;
+    }
+
+    .summary__result {
+        @apply mx-10;
+    }
+
+    .user__input {
+        @apply min-w-full;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .navbar__container {
+        @apply flex-col gap-4 px-6 py-4 text-center;
+    }
+
+    .navbar__account {
+        @apply flex-col gap-2;
+    }
+    .login__form, .register__form {
+        @apply p-10 gap-10;
+    }
+    .form__input, .register__input {
+        @apply w-full;
+    }
+    .summary__container {
+        @apply px-4;
+    }
+    .summary__title {
+        @apply mx-0 text-xl text-center;
+    }
+    .summary__message {
+        @apply w-full;
+    }
+    .summary__result {
+        @apply mx-0;
+    }
+    .user__input {
+        @apply min-w-full min-h-60 p-4;
+    }
+    .result__container {
+        @apply px-5 py-4;
+    }
+}
+
+/* Petit mobile */
+@media (max-width: 480px) {
+    .navbar__title {
+        @apply text-xl;
+    }
+    .summary__button {
+        @apply w-full;
+    }
+    .summary__select {
+        @apply w-full;
+    }
+    .copy__button {
+        @apply text-sm px-2 py-1;
+    }
+}
