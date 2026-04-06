@@ -75,13 +75,16 @@ export default function Summary(){
                 </div>
 
                 {error && <p className="summary__error">{error}</p>}
-                {loading && <p>Chargement...</p>}
                 <div className="summary__message">
                     <UserInput message={text} setMessage={setText}/>
                     <div className="summary__button__container">
                         <button onClick={handleSend} disabled={loading || !text.trim()} className="summary__button">Résumer</button>
                     </div>
                 </div>
+
+                {loading && <div className="flex justify-center items-center">
+                    <div className="summary__loading"></div>
+                </div>}
                 {result && <div className="summary__result">
                     <h3 className="summary__result__title">Votre résumé : </h3>
                     <Result response={result} />
