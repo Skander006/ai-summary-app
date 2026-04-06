@@ -90,6 +90,4 @@ npm run dev
 
 ## Author
 Developed by Skander SAAFI
-```bash
-git clone https://github.com/your-username/summify.git
-cd summify
+
