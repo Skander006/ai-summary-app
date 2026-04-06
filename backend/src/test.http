@@ -21,11 +21,31 @@ Content-Type: application/json
 "password": "1234578"
 }
 
-### Summary
-POST http://localhost:2525/api/summary
+### Summary Short Version
+POST http://localhost:2525/api/summary/short
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDI2MDkzNjJmOTRiMGI2OWUzNzc3MSIsImVtYWlsIjoidGVzdEB0ZXN0LmNvbSIsImlhdCI6MTc3NTM5NDk3NSwiZXhwIjoxNzc1OTk5Nzc1fQ.pPk5xAX6jjCS6qdYANfLUk-7v56WDfEzdogKUG8TWFI
 
 {
   "text": "Je suis un joueur de tennis, je jouais au tennis depuis que j'avais 5 ans, j'adore ce jeu, et en fait dès lors que j'étais petit j'aimais toujours regarder les grands matchs à la télé, certes les matchs de Federer qui est pour toujours mon meilleur joueur (mon joueur de tennis préféré) et quand j'ai le temps j'essaierais de jouer plus car la actuellement e peux pas vu que j'ai la faculté et tout, donc actuellement je joue quand est ce que je trouve le temps de jouer."
 }
+
+### Summary Detailed Version
+POST http://localhost:2525/api/summary/detailed
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDI2MDkzNjJmOTRiMGI2OWUzNzc3MSIsImVtYWlsIjoidGVzdEB0ZXN0LmNvbSIsImlhdCI6MTc3NTM5NDk3NSwiZXhwIjoxNzc1OTk5Nzc1fQ.pPk5xAX6jjCS6qdYANfLUk-7v56WDfEzdogKUG8TWFI
+
+{
+  "text": "Je suis un joueur de tennis, je jouais au tennis depuis que j'avais 5 ans, j'adore ce jeu, et en fait dès lors que j'étais petit j'aimais toujours regarder les grands matchs à la télé, certes les matchs de Federer qui est pour toujours mon meilleur joueur (mon joueur de tennis préféré) et quand j'ai le temps j'essaierais de jouer plus car la actuellement e peux pas vu que j'ai la faculté et tout, donc actuellement je joue quand est ce que je trouve le temps de jouer."
+}
+
+### Summary Bullet Points Version
+POST http://localhost:2525/api/summary/bullet
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDI2MDkzNjJmOTRiMGI2OWUzNzc3MSIsImVtYWlsIjoidGVzdEB0ZXN0LmNvbSIsImlhdCI6MTc3NTM5NDk3NSwiZXhwIjoxNzc1OTk5Nzc1fQ.pPk5xAX6jjCS6qdYANfLUk-7v56WDfEzdogKUG8TWFI
+
+{
+  "text": "Je suis un joueur de tennis, je jouais au tennis depuis que j'avais 5 ans, j'adore ce jeu, et en fait dès lors que j'étais petit j'aimais toujours regarder les grands matchs à la télé, certes les matchs de Federer qui est pour toujours mon meilleur joueur (mon joueur de tennis préféré) et quand j'ai le temps j'essaierais de jouer plus car la actuellement e peux pas vu que j'ai la faculté et tout, donc actuellement je joue quand est ce que je trouve le temps de jouer."
+}
+
+
