@@ -23,14 +23,15 @@ export default function Summary(){
         setLoading(true);
         try{
             const res = await api.post('/summary', {text});
-            const result = res.data.summary.split(":")[1];
+            const summaryText = res.data.summary;
+            const result = summaryText.includes(":")? summaryText.split(":")[1] : summaryText;
             setResult(result);
+            setText("");
         } catch(err){
             console.error(err.message);
             setError(err?.response?.data?.error || err.message);
         } finally {
             setLoading(false);
-            setText("");
         }
     }
 
@@ -46,15 +47,23 @@ export default function Summary(){
     return(
         <div className="summary__container">
             <NavBar />
-            <h2>{greeting}, {user.firstname}</h2>
-            {error && <p>{error}</p>}
-            <div className="summary__message">
-                <UserInput message={text} setMessage={setText}/>
-                <button onClick={handleSend} className="summary__button">Résumer</button>
+            <div className="summary__content">
+                <h2 className="summary__title">{greeting}, {user.firstname}</h2>
+                {error && <p className="summary__error">{error}</p>}
+                {loading && <p>Chargement...</p>}
+                <div className="summary__message">
+                    <UserInput message={text} setMessage={setText}/>
+                    <div className="summary__button__container">
+                        <button onClick={handleSend} disabled={loading || !text.trim()} className="summary__button">Résumer</button>
+                    </div>
+                </div>
+                {result && <div className="summary__result">
+                    <h3 className="summary__result__title">Votre résumé : </h3>
+                    <Result response={result} />
+                </div>}
+
             </div>
-            <div className="summary__result">
-                <Result response={result} />
-            </div>
+
         </div>
     );
 }
