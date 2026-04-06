@@ -57,17 +57,19 @@ GROQ_API_KEY=your groq api key
 ## Run the application
 
 ### Start backend
+```bash
 cd backend
 npm run dev
-
+```
 ### Start frontend
+```bash
 cd frontend
 npm run dev
-
+```
 ## API Endpoints
-POST /api/auth/register
-POST /api/auth/login
-POST /api/summary (protected)
+- POST /api/auth/register
+- POST /api/auth/login
+- POST /api/summary (protected)
 
 ## Project Structure
 backend/
@@ -79,8 +81,7 @@ frontend/
   components/
   pages/
   api/
-  context/
-
+  context/ 
 ## Possible Improvements
 - Add multiple summary formats (short, detailed, bullet points)
 - Save user summaries
