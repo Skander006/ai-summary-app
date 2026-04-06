@@ -72,12 +72,12 @@ npm run dev
 - POST /api/summary (protected)
 
 ## Project Structure
-backend/
+- backend/
   routes/
   middleware/
   models/
   config/
-frontend/
+- frontend/
   components/
   pages/
   api/
