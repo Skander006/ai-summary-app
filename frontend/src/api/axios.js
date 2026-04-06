@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 const api = axios.create({
-    baseURL : 'https://github.com/Skander006/ai-summary-app.git'
+    baseURL : 'https://ai-summary-app-7xxy.onrender.com/api'
 });
 
 api.interceptors.request.use((config)=>{
