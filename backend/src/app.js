@@ -8,7 +8,10 @@ import {ConnectDB} from "./config/db.js";
 dotenv.config();
 ConnectDB();
 const app = express();
-app.use(cors());
+const corsOptions = {
+    origin: "https://ai-summary-app-sage.vercel.app"
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/summary', summaryRoutes);

@@ -49,3 +49,6 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDI2MDkzN
 }
 
 
+### Render Server Verification
+GET https://ai-summary-app-7xxy.onrender.com/health
+
